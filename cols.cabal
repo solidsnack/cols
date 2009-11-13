@@ -1,0 +1,25 @@
+name                          : cols
+version                       : 0.0.0
+category                      : Text
+license                       : BSD3
+license-file                  : LICENSE
+author                        : Jason Dusek
+maintainer                    : cols@solidsnack.be 
+homepage                      : http://github.com/jsnx/cols/
+synopsis                      : How many columns for this character?
+description                   :
+  Implements a column width query for characters that is consistent with their
+  formatting in many terminals/systems.
+
+
+cabal-version                 : >= 1.2.3
+build-type                    : Simple
+extra-source-files            : README
+
+
+library
+  build-depends               : base >= 2 && < 4
+                              , containers
+  exposed-modules             : Data.Char.Cols
+  extensions                  : StandaloneDeriving
+
