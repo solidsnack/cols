@@ -10,15 +10,16 @@
  >  #!/usr/bin/env runhaskell
  >
  >  import Text.Printf
- >
+ >  
  >  import System.Locale.SetLocale
  >  import Data.Char.WCWidth
  >
  >  main                     =  do
  >    setLocale LC_ALL (Just "")
- >    sequence_ [ printf "%04x  %2d" (fromEnum c) (wcwidth c) | c <- chars ]
+ >    sequence_ [ display c | c <- chars ]
  >   where
- >    chars                  =  [minBound..'e']
+ >    chars                  =  [minBound..'A']
+ >    display c = printf "%04x  %2d  %s\n" (fromEnum c) (wcwidth c) (show c)
 
     The program file @WCWidthTableaux.hs@ contains a more extensive example of
     using 'wcwidth'.
