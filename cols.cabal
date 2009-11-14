@@ -5,14 +5,14 @@ license                       : BSD3
 license-file                  : LICENSE
 author                        : Jason Dusek
 maintainer                    : cols@solidsnack.be 
-homepage                      : http://github.com/jsnx/cols/
+homepage                      : http://github.com/solidsnack/cols/
 synopsis                      : How many columns for this character?
 description                   :
   Implements a column width query for characters that is consistent with their
-  formatting in many terminals/systems.
+  formatting in on many systems.
 
 
-cabal-version                 : >= 1.2.3
+cabal-version                 : >= 1.6.0
 build-type                    : Simple
 extra-source-files            : README
 
@@ -20,6 +20,21 @@ extra-source-files            : README
 library
   build-depends               : base >= 2 && < 4
                               , containers
+                              , setlocale >= 0.0.3
+                              , utf8-string >= 0.3
   exposed-modules             : Data.Char.Cols
+                                Data.Char.WCWidth
   extensions                  : StandaloneDeriving
+                                ForeignFunctionInterface
+
+
+executable                      wcwidth-stats
+  main-is                     : WCWidthTableaux.hs
+  build-depends               : base >= 2 && < 4
+                              , containers
+                              , setlocale >= 0.0.3
+                              , utf8-string >= 0.3
+  extensions                  : StandaloneDeriving
+                                ForeignFunctionInterface
+
 
