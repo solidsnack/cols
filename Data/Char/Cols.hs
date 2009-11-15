@@ -66,9 +66,7 @@ cols c
                                      -
                                      -    （ｂｅｌｌ）
                                      - - - - - - - - - - - - - - - - - - - - -}
-  | 0x0300 ... 0x036F        =  -1  {-  Backwards traveling characters;
-                                     -  combining diacritics and other,
-                                     -  stranger things.
+  | 0x0300 ... 0x036F        =  0   {-  Combining diacritics.
                                      - - - - - - - - - - - - - - - - - - - - -}
   | 0x0370 ... 0x058F        =  1   {-  Greek, Coptic, Cyrillic and Armenian
                                      -  and probably more. All assigned a
