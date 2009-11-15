@@ -29,7 +29,11 @@ cols                        ::  Char -> Int
 cols c
   | 0x0020 ... 0x007E        =  1   {-  Plain old printable ASCII.
                                      - - - - - - - - - - - - - - - - - - - - -}
-  | 0x3400 ... 0x9FFF        =  2   {-  UniHan, Book of Changes.
+  | 0x3400 ... 0x4DB5        =  2   {-  UniHan.
+                                     - - - - - - - - - - - - - - - - - - - - -}
+  | 0x4E00 ... 0x9FB2        =  2   {-  UniHan.
+                                     - - - - - - - - - - - - - - - - - - - - -}
+  | 0x9FB4 ... 0x9FBB        =  2   {-  UniHan.
                                      - - - - - - - - - - - - - - - - - - - - -}
   | '\t' == c                =  8   {-  The ASCII tab character.
                                      - - - - - - - - - - - - - - - - - - - - -}
@@ -62,6 +66,12 @@ cols c
                                      -  and probably more. All assigned a
                                      -  width of one column.
                                      - - - - - - - - - - - - - - - - - - - - -}
+  | 0xFFFC ... 0xFFFD        =  1   {-  Replacement characters, namely:
+                                     -
+                                     -    ￼ �
+                                     - - - - - - - - - - - - - - - - - - - - -}
+  | 0xFFE8 ... 0xFFEE        =  1   {-  Single width arrows and others.
+                                     - - - - - - - - - - - - - - - - - - - - -}
   | 0xFF61 ... 0xFFBE        =  1   {-  Single width forms of CJK chars, like:
                                      -
                                      -    ｡ ﾖ ﾶ
@@ -76,13 +86,7 @@ cols c
                                      - - - - - - - - - - - - - - - - - - - - -}
   | 0xFFE0 ... 0xFFE6        =  2   {-  Double width money, negation, others.
                                      - - - - - - - - - - - - - - - - - - - - -}
-  | 0xFFE8 ... 0xFFEE        =  1   {-  Single width arrows and others.
-                                     - - - - - - - - - - - - - - - - - - - - -}
-  | 0xFFE8 ... 0xFFEE        =  1   {-  Single width arrows and others.
-                                     - - - - - - - - - - - - - - - - - - - - -}
-  | 0xFFFC ... 0xFFFD        =  1   {-  Replacement characters, namely:
-                                     -
-                                     -  ￼ �
+  | 0x4DC0 ... 0x4DFF        =  1   {-  Hexagrams from the Book of Changes.
                                      - - - - - - - - - - - - - - - - - - - - -}
   | otherwise                =  0   {-  Nulls and everything else.
                                      - - - - - - - - - - - - - - - - - - - - -}
