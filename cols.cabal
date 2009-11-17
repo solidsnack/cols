@@ -9,7 +9,7 @@ homepage                      : http://github.com/solidsnack/cols/
 synopsis                      : How many columns for this character?
 description                   :
   Implements a column width query for characters that is consistent with their
-  formatting in on many systems.
+  formatting on many systems.
 
 
 cabal-version                 : >= 1.6.0
@@ -20,21 +20,7 @@ extra-source-files            : README
 library
   build-depends               : base >= 2 && < 4
                               , containers
-                              , setlocale >= 0.0.3
-                              , utf8-string >= 0.3
   exposed-modules             : Data.Char.Cols
-                                Data.Char.WCWidth
   extensions                  : StandaloneDeriving
-                                ForeignFunctionInterface
-
-
-executable                      wcwidth-stats
-  main-is                     : WCWidthTableaux.hs
-  build-depends               : base >= 2 && < 4
-                              , containers
-                              , setlocale >= 0.0.3
-                              , utf8-string >= 0.3
-  extensions                  : StandaloneDeriving
-                                ForeignFunctionInterface
 
 
